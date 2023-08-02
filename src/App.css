@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", Arial, Helvetica, sans-serif;
+}
+:root {
+  --clr-main: #e2ebf0;
+  --clr-main-1: #cfd9df;
+  --clr-main-1_2: #cfd9df91;
+  --clr-secondary: #1d8c77;
+  --clr-secondary-light: #83c5b9;
+  --clr-secondary-dark: #12604e;
+  --clr-complementary: #3e4977;
+  --clr-complementary-light: #8a8eae;
+  --default-height: 100vh;
+}
+body {
+  min-height: var(--default-height);
+  background-image: linear-gradient(
+    to top,
+    var(--clr-main-1) 0%,
+    var(--clr-main) 100%
+  );
+}
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--clr-main-1_2);
+  width: 100%;
+  height: 100%;
+  pointer-events: all;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* HEADER */
+.container {
+  transition: all 100ms ease-in-out;
+  width: 95dvw;
+  margin: 0 auto;
+}
+header {
+  padding: 1rem 0;
+  color: var(--clr-secondary-dark);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 1.1rem;
+}
+header span {
+  font-weight: 500;
+  margin-right: auto;
+}
+.title{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.title button{
+  all: unset;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+header span.version {
+  margin-right: unset;
+  font-weight: 400;
+  font-size: 1rem;
+}
+/* MAIN CONTENT HERE */
+
+main {
+  background-color: var(--clr-secondary-light);
+  color: white;
+  border-radius: 0.5rem;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+form {
+  width: 100%;
+}
+.form-group {
+  position: relative;
+  width: 100%;
+}
+.form-group label {
+  cursor: pointer;
+  display: block;
+  background-color: var(--clr-main-1_2);
+  border: 2px dotted white;
+  color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+label *:nth-child(1) {
+  font-size: 4rem;
+}
+input[type="file"] {
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.file_name {
+  padding: 10px;
+  text-align: center;
+  font-weight: 600;
+}
+.generate_qr,
+.qr_header button {
+  all: unset;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 100ms ease-in-out;
+  background-color: var(--clr-main);
+  color: var(--clr-secondary-dark);
+  cursor: pointer;
+}
+.generate_qr:hover{
+  background: var(--clr-main-1);
+}
+.generate_qr:disabled {
+  background-color: var(--clr-main-1);
+  color: var(--clr-complementary-light);
+}
+.qr_container {
+  display: flex;
+  background: var(--clr-main);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+  border-radius: 10px;
+}
+.qr_container p {
+  font-weight: 600;
+  color: var(--clr-complementary);
+}
+.qr_container .qr_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  max-height: 500px;
+  overflow-y: scroll;
+}
+.qr_container .qr_list .qr_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-width: 250px;
+  min-height: 250px;
+  padding: 10px;
+}
+.qr_item img {
+  width: 100%;
+}
+.qr_header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+a {
+  text-decoration: none;
+}
+.qr_info {
+  display: flex;
+  flex-direction: column;
+  color: var(--clr-complementary);
+  align-items: center;
+  text-align: center;
+}
+.qr_info span:nth-of-type(1) {
+  font-weight: 500;
+}
+.qr_header button {
+  background-color: var(--clr-complementary);
+  color: var(--clr-main-1);
+}
+.qr_header button:hover{
+  background-color: var(--clr-complementary-light);
+}
+@media screen and (min-width: 425px) {
+  .container {
+    width: 85dvw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    width: 70dvw;
+  }
+  .qr_container .qr_list .qr_item {
+    min-height: 350px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .qr_container .qr_list .qr_item {
+    max-width: 200px;
+    min-height: 300px;
+  }
+}
